@@ -1,0 +1,17 @@
+* About
+
+  The idea of this simple package was taken from [[https://www.reddit.com/r/emacs/comments/3kqt6e/2_easy_little_known_steps_to_speed_up_emacs_start/][this Reddit post]], all it does is temporary sets /file-name-handler-alist/ to /nil/ (or /fnhh-initial-alist/ customizable) and restores the value on /'emacs-startup-hook/ (customizable /fn-hook/), so it can (sometimes) speed up emacs startup time a little bit.
+
+
+
+* Installation and usage
+
+  The main idea is to call fnhh-mode as early as possible (though you can experiment with that), I prefer to put it right after /quelpa-use-package/, so I can install it directly using /:quelpa/ keyword.
+
+  #+BEGIN_SRC emacs-lisp
+    (use-package fnhh
+      :quelpa
+      (fnhh :repo "a13/fnhh" :fetcher github)
+      :config
+      (fnhh-mode 1))
+  #+END_SRC
